@@ -4,22 +4,13 @@ using UnityEngine;
 
 public class Bonus : MonoBehaviour
 {
-
-    void Start()
-    {
-        
-    }
-
-
-    void Update()
-    {
-        
-    }
+    public PlayerData PlayerData;
 
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("Player"))
         {
+            PlayerData.Coins += 10;
             Destroy(gameObject);
         }
     }
