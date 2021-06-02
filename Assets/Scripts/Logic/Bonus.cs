@@ -4,13 +4,22 @@ using UnityEngine;
 
 public class Bonus : MonoBehaviour
 {
-    public PlayerData PlayerData;
+    private GameObject gameManager;  // У нас так пока что
+
+    void Start()
+    {
+        gameManager = GameObject.Find("GameManager");
+    }
 
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            PlayerData.Coins += 10;
+            Destroy(gameObject);
+            gameManager.GetComponent<JewelSpawn>().AddCoins();
+        }
+        if (col.gameObject.CompareTag("Collider"))
+        {
             Destroy(gameObject);
         }
     }

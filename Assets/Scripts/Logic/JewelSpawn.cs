@@ -1,10 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class JewelSpawn : MonoBehaviour
 {
     public GameObject jewel;
+    public int jewelCount = 0;
+    public Text jewelText;
+    public PlayerData PlayerData;  
+
+    void Awake()
+    {
+        jewelCount = PlayerData.Coins;
+    }
 
     void Start()
     {
@@ -14,7 +23,7 @@ public class JewelSpawn : MonoBehaviour
 
     void Update()
     {
-        
+        jewelText.text = jewelCount.ToString();
     }
 
     IEnumerator spawn()
@@ -30,5 +39,11 @@ public class JewelSpawn : MonoBehaviour
             Instantiate(jewel, new Vector3(x, y, 0), Quaternion.identity);
             yield return new WaitForSeconds(10f);
         }
+    }
+
+    public void AddCoins()
+    {
+        PlayerData.Coins++;
+        jewelCount = PlayerData.Coins;
     }
 }
