@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public PlayerData PlayerData;
     private Rigidbody2D rb;
     public float moveH, moveV;
-    [SerializeField]
-    private float moveSpeed = 1.0f;
+    public float moveSpeed = 1.0f;
     
 
     private void Awake()
@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        
+        moveSpeed = PlayerData.Speed;
     }
 
     private void FixedUpdate()

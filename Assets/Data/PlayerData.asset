@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e34e610a7a71147bc1bcd981baec5e, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
+  Health: 100
+  Speed: 1
   WeaponPower: 5
-  Coins: 1
+  Coins: 10000

@@ -46,4 +46,10 @@ public class JewelSpawn : MonoBehaviour
         PlayerData.Coins++;
         jewelCount = PlayerData.Coins;
     }
+
+    public void SubtractCoins(int coins)
+    {
+        PlayerData.Coins -= coins;
+        jewelCount = PlayerData.Coins;
+    }
 }
